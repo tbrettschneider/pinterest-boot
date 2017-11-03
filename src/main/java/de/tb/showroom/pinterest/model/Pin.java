@@ -14,9 +14,9 @@ public class Pin implements Serializable {
 
     @Id @GeneratedValue
     private Long id;
-    private String description;
     @URL
     private String url;
+    private String description;
 
     public Pin() {}
 

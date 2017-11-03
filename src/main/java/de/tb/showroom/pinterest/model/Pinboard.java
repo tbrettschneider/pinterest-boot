@@ -18,14 +18,13 @@ public class Pinboard implements Serializable {
     private String slug;
     private boolean secret;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Pin.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Pin.class)
     private Set<Pin> pins = new HashSet<>();
 
     public Pinboard() {}
 
     public Pinboard(String title) {
-        this.title = title;
-        this.slug = new Slugify().slugify(title);
+        setTitle(title);
     }
 
     public void addPin(Pin pin) {

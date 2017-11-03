@@ -15,7 +15,7 @@ public class User implements Serializable {
     private Long id;
     private String username;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Pinboard.class)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Pinboard.class)
     private Set<Pinboard> pinboards = new HashSet<>();
 
     public Long getId() {

@@ -12,6 +12,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * A pinboard is a collection of pins dedicated to a specific theme, e.g. nature, cars, girls, beer.
+ */
 @Entity
 public class Pinboard implements Serializable {
 

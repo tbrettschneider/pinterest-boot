@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
+/**
+ * A pin is an image linked from a website.
+ */
 @Entity
 public class Pin implements Serializable {
 

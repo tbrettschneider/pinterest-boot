@@ -1,11 +1,14 @@
 package de.tb.showroom.pinterest.model;
 
 import com.github.slugify.Slugify;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +20,9 @@ public class Pinboard implements Serializable {
     private String title;
     private String slug;
     private boolean secret;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User owner;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Pin.class)
     private Set<Pin> pins = new HashSet<>();
@@ -69,7 +75,7 @@ public class Pinboard implements Serializable {
     }
 
     public Set<Pin> getPins() {
-        return pins;
+        return Collections.unmodifiableSet(pins);
     }
 
     public void setPins(Set<Pin> pins) {
@@ -78,6 +84,34 @@ public class Pinboard implements Serializable {
 
     public String getSlug() {
         return slug;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.title)
+                .build();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) { return false; }
+        if (obj == this) { return true; }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        Pinboard pinboardToCompareTo = (Pinboard) obj;
+        return new EqualsBuilder()
+                .append(this.title, pinboardToCompareTo.getTitle())
+                .build();
     }
 
     @Override

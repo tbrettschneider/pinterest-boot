@@ -1,5 +1,7 @@
 package de.tb.showroom.pinterest.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.URL;
@@ -51,6 +53,28 @@ public class Pin implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.url)
+                .append(this.description)
+                .build();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) { return false; }
+        if (obj == this) { return true; }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        Pin pinToCompareTo = (Pin) obj;
+        return new EqualsBuilder()
+                .append(this.url, pinToCompareTo.getUrl())
+                .append(this.description, pinToCompareTo.getDescription())
+                .build();
     }
 
     @Override

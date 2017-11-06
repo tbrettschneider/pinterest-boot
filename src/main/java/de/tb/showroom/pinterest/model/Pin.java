@@ -1,5 +1,6 @@
 package de.tb.showroom.pinterest.model;
 
+import de.tb.showroom.pinterest.repositories.LivePinsListener;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -7,6 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -15,6 +17,7 @@ import java.io.Serializable;
  * A pin is an image linked from a website.
  */
 @Entity
+@EntityListeners(LivePinsListener.class)
 public class Pin implements Serializable {
 
     @Id @GeneratedValue

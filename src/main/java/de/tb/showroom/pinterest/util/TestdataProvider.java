@@ -5,11 +5,10 @@ import de.tb.showroom.pinterest.model.User;
 import de.tb.showroom.pinterest.repositories.UserRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
 
-@Component
+//@Component
 class TestdataProvider implements ApplicationListener<ContextRefreshedEvent> {
 
     private Logger logger = Logger.getLogger(TestdataProvider.class.getName());

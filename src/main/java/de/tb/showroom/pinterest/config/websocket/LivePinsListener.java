@@ -1,6 +1,7 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.config.websocket;
 
 import de.tb.showroom.pinterest.model.Pin;
+import de.tb.showroom.pinterest.util.AutowireHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Async;

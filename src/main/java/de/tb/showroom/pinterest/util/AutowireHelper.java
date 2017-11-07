@@ -1,4 +1,4 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

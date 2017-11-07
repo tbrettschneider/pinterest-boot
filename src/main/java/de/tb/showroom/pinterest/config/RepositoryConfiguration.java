@@ -1,5 +1,6 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.config;
 
+import de.tb.showroom.pinterest.util.AutowireHelper;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;

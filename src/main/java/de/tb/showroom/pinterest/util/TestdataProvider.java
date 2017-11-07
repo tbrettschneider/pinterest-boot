@@ -1,7 +1,8 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.util;
 
 import de.tb.showroom.pinterest.model.Pinboard;
 import de.tb.showroom.pinterest.model.User;
+import de.tb.showroom.pinterest.repositories.UserRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;

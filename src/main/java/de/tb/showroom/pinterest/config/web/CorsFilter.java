@@ -1,4 +1,4 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.config.web;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

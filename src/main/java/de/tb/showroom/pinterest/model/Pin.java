@@ -1,6 +1,6 @@
 package de.tb.showroom.pinterest.model;
 
-import de.tb.showroom.pinterest.repositories.LivePinsListener;
+import de.tb.showroom.pinterest.config.websocket.LivePinsListener;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;

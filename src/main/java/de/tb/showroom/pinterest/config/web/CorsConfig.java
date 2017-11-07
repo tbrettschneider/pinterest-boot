@@ -1,4 +1,4 @@
-package de.tb.showroom.pinterest.repositories;
+package de.tb.showroom.pinterest.config.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

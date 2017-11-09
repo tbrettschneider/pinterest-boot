@@ -32,9 +32,8 @@ public class PinterestApplication {
 			try {
 				Set<Pin> pins = mapper.readValue(inputStream, typeReference);
 				pinRepository.save(pins);
-				System.out.println("Pins Saved!");
 			} catch (IOException e){
-				System.out.println("Unable to save pins: " + e.getMessage());
+				e.printStackTrace();
 			}
 		};
 	}

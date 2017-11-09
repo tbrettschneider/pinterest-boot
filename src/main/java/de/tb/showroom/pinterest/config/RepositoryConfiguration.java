@@ -15,6 +15,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class RepositoryConfiguration {
 
+    /**
+     * Returns an AutowireHelper that allows for Spring managed JPA EntityListener.
+     * @return autowireHelper
+     */
     @Bean
     public AutowireHelper autowireHelper(){
         return AutowireHelper.getInstance();

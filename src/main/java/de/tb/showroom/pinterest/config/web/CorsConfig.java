@@ -14,6 +14,5 @@ public class CorsConfig extends WebMvcConfigurerAdapter {
         registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedHeaders("Access-Control-Allow-Origin");
-
     }
 }

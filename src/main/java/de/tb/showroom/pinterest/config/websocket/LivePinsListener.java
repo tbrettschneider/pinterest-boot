@@ -16,7 +16,7 @@ public class LivePinsListener {
     private SimpMessagingTemplate webSocket;
 
     @Async
-    public void pushChangesToWebSocket(Pin pin) {
+    public void pushViaWebsocket(Pin pin) {
         System.out.println("Pin stored in db: " + pin);
         webSocket.convertAndSend("/topic/pins", pin);
     }
@@ -24,6 +24,6 @@ public class LivePinsListener {
     @PostPersist
     void onPostPersist(Pin pin) {
         AutowireHelper.autowire(this, this.webSocket);
-        this.pushChangesToWebSocket(pin);
+        this.pushViaWebsocket(pin);
     }
 }

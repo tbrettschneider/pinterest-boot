@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static org.springframework.http.HttpHeaders.*;
+
 /**
  * Filter for enabling CORS support.
  */
@@ -16,14 +18,14 @@ import java.io.IOException;
 public class CorsFilter extends OncePerRequestFilter {
 
     @Override
-    protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
-                                    final FilterChain filterChain) throws ServletException, IOException {
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS");
-        response.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-        response.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Access-Control-Allow-Credentials");
-        response.addHeader("Access-Control-Allow-Credentials", "true");
-        response.addIntHeader("Access-Control-Max-Age", 10);
+    protected void doFilterInternal(
+            final HttpServletRequest request, final HttpServletResponse response, final FilterChain filterChain) throws ServletException, IOException {
+        response.addHeader(ACCESS_CONTROL_ALLOW_ORIGIN, "*");
+        response.addHeader(ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, DELETE, PUT, PATCH, HEAD, OPTIONS");
+        response.addHeader(ACCESS_CONTROL_ALLOW_HEADERS, "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Cache-Control");
+        response.addHeader(ACCESS_CONTROL_EXPOSE_HEADERS, "Access-Control-Allow-Origin, Access-Control-Allow-Credentials");
+        response.addHeader(ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
+        response.addIntHeader(ACCESS_CONTROL_MAX_AGE, 10);
         filterChain.doFilter(request, response);
     }
 }

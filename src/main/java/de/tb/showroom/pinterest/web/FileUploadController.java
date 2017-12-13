@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.core.io.InputStreamSource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
@@ -40,6 +41,7 @@ public class FileUploadController {
         String targetFilename = new String(Base64Utils.decodeFromUrlSafeString(resourceId));
         try (OutputStream os = response.getOutputStream(); FileInputStream fis = new FileInputStream(targetFilename)) {
             StreamUtils.copy(fis, os);
+            response.addHeader(HttpHeaders.CACHE_CONTROL, "public, max-age=604800");
             response.setStatus(200);
         } catch (IOException e) {
             e.printStackTrace();

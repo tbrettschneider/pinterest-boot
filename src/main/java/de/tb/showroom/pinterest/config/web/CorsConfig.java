@@ -5,6 +5,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import static org.springframework.http.HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN;
+
 @Configuration
 @EnableWebMvc
 public class CorsConfig extends WebMvcConfigurerAdapter {
@@ -13,6 +15,6 @@ public class CorsConfig extends WebMvcConfigurerAdapter {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
-                .allowedHeaders("Access-Control-Allow-Origin");
+                .allowedHeaders(ACCESS_CONTROL_ALLOW_ORIGIN);
     }
 }
